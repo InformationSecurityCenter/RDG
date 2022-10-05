@@ -13,4 +13,4 @@ Repository contains source code of services, checkers and sploits.
 ## Services
 | Service | Checker | Sploits |
 |:----------------:|:---------:|:----------------:|
-| По левому краю | По центру | По правому краю |
+| [Distributed password panager](https://github.com/InformationSecurityCenter/RDG/tree/main/Services/distributed_password_manager) | По центру | По правому краю |

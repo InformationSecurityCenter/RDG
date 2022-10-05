@@ -15,3 +15,4 @@ Repository contains source code of services, checkers and sploits.
 |:----------------:|:---------:|:----------------:|
 | [Distributed password panager](https://github.com/InformationSecurityCenter/RDG/tree/main/Services/distributed_password_manager) | [checker](https://github.com/InformationSecurityCenter/RDG/tree/main/checkers/distributed_password_manager) | [sploit](https://github.com/InformationSecurityCenter/RDG/tree/main/exploit/distributed_password_manager) |
 | [NKVD](https://github.com/InformationSecurityCenter/RDG/tree/main/Services/distributed_password_manager) | [checker](https://github.com/InformationSecurityCenter/RDG/tree/main/checkers/NKVD) | [sploit](https://github.com/InformationSecurityCenter/RDG/tree/main/exploit/NKVD) |
+|:----------------|:---------:|:----------------:|

@@ -1,5 +1,5 @@
 # CTF RDG AD 2022
-The contest was held on February 6, 2022.  
+The contest was held on October 1, 2022.  
 Repository contains source code of services, checkers and sploits.
 
 ## Results of the past competitions

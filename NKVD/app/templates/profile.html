@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+{% import 'bootstrap/wtf.html' as wtf %}
+
+{% block app_content %}
+    <h1>Profile: {{ current_user.username }}</h1>
+    <td><img src="/static/img/avatar.png" alt="avatar" width="256" height="256"></td>
+    <div>Icon made from <a href="http://www.onlinewebfonts.com/icon">Icon Fonts</a> is licensed by CC BY 3.0</div>
+{% endblock %}

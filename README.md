@@ -4,6 +4,6 @@
 <img width="1233" alt="result" src="https://user-images.githubusercontent.com/103483328/193965971-25ed6eec-a8a1-4c11-9623-83e23c70da4c.png">
 
 ## Infrastructure 
-DevOps: [@pomo-mondreganto](https://github.com/pomo-mondreganto/)\n
+DevOps: [@pomo-mondreganto](https://github.com/pomo-mondreganto/)  
 Checksystem: [ForcAD](https://github.com/pomo-mondreganto/ForcAD)
 

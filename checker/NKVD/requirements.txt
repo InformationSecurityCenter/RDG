@@ -1,3 +1,0 @@
-checklib
-requests==2.28.1
-PyJWT==2.4.0

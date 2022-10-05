@@ -1,6 +1,6 @@
 # Vulnerable service
 
-Vulnerable web service for [rumeetup](https://rumeetup.ru/) CTF.
+Vulnerable web service for [RDG CTF](https://t.me/+CcqVaShZdk5iYzcy) CTF.
 
 ## Install
 

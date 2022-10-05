@@ -11,6 +11,6 @@ Repository contains source code of services, checkers and sploits.
 * Checksystem: [ForcAD](https://github.com/pomo-mondreganto/ForcAD)
 
 ## Services
-| Service | Checker	 | Sploits |
-|----------------|:---------:|----------------:|
+| Service | Checker | Sploits |
+|:----------------:|:---------:|:----------------:|
 | По левому краю | По центру | По правому краю |

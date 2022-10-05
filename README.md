@@ -3,7 +3,8 @@ The contest was held on October 1, 2022.
 Repository contains source code of services, checkers and sploits.
 
 ## Results of the past competitions
-<img width="1233" alt="result" src="https://user-images.githubusercontent.com/103483328/193965971-25ed6eec-a8a1-4c11-9623-83e23c70da4c.png">
+<img width="1225" alt="result" src="https://user-images.githubusercontent.com/103483328/193971577-ab308b04-dcff-4e94-b50c-58d24dd3e931.png">
+
 
 ## Infrastructure 
 * DevOps: [@pomo-mondreganto](https://github.com/pomo-mondreganto/)  

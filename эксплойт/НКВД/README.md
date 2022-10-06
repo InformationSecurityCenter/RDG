@@ -7,7 +7,7 @@ The service contains two vulnerabilities. I hope for that:)
 #### Summary
 
 First vulnerability affected PyJWT module ([JWT](https://en.wikipedia.org/wiki/JSON_Web_Token) 
-implementation in Python). PyJWT from 2.0.0 to 2.4.0 contains some security issues which allow you
+implementation in Python). PyJWT from 2.0.0 to 2.3.0 contains some security issues which allow you
 to perform key confusion attack by change **ed25519** asymmertic algorithm to symmetric algorithm **HS256**. 
 
 The service set up JWT value to *access_token* cookie value after log in. Take it. After decoding we can see additional 

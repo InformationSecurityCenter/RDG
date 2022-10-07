@@ -1,0 +1,170 @@
+<?php
+    $ip_address  = $_SERVER['HTTP_HOST']; 
+    require_once("./include/auth.php");
+
+    if (!check_cookie($_COOKIE['token']))
+        header("Location: http://$ip_address/login.html");
+?>
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A layout example that shows off a blog page with a list of posts.">
+    <title>Admin Panel</title>
+
+    <link rel="stylesheet" href="assets/css/pure-min.css">
+    <link rel="stylesheet" href="assets/css/pure-responsive-min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/filter/style.css">
+</head>
+<body>
+    <script>
+        function showPopup(ID, act) {
+            popup_bg = document.getElementById('popup-bg');
+            popup_que = document.getElementById("popup_que");
+
+            msg = document.getElementById("question-msg");
+            switch(act) {
+                case 'ON':
+                    msg.innerHTML = "Вы действительно хотите включить сайт?";
+                    document.getElementById("Act").value = "ON";
+                    break;
+                case 'OFF':
+                    msg.innerHTML = "Вы действительно хотите выключить сайт?";
+                    document.getElementById("Act").value = "OFF";
+                    break;
+            }
+
+            document.getElementById("Org_ID-toSwitch").value = ID;
+
+
+
+            popup_bg.classList.add("open");
+            popup_que.classList.add("open");
+        }
+
+        function hidePopup() {
+            popup_bg.classList.remove("open");
+            popup_que.classList.remove("open");
+        }
+
+        function clickYES() {
+            popup_bg.classList.remove("open");
+            popup_que.classList.remove("open");
+
+            window.location.reload()
+        }
+    </script>
+
+    <div id="popup-bg" onclick="hidePopup()" class="popup-bg"></div>
+    <div id="popup_que" class="popup popup-login" style="top: 449px;">
+        <div class="popup-close" onclick="hidePopup()"></div>
+        <div id="question-msg" class="popup-header"></div>
+        <div class="popup-body">
+
+            <div class="popup-form-button">
+                <form action="ON_site.php" method="post">
+                    <input type="submit" class="popup-form__btn btn btn_2" value="Да">
+                    <input id="Org_ID-toSwitch" type="hidden" name="Org_ID" value="">
+                    <input id="Act" type="hidden" name="Act" value="">
+                </form>
+            </div>
+            <div class="popup-form-button">
+                <button onclick="hidePopup()" type="button" class="popup-form__btn btn btn_2">Нет</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="layout" class="pure-g">
+        <div class="sidebar pure-u-1 pure-u-md-3-24">
+            <div id="menu">
+                <div class="pure-menu">
+                    <p class="pure-menu-heading">
+                        Admin Panel
+                        <a href="../login.html" class="pure-button button-xxsmall">Выход &raquo;</a>
+                    </p>
+                    <ul class="pure-menu-list">
+                        <li class="pure-menu-item menu-item-divided pure-menu-selected">
+                            <a href="sites.html" class="pure-menu-link">Сайты виртуального хостинга</a>
+                        </li>
+                        <li class="pure-menu-item">
+                            <a href="users.html" class="pure-menu-link">Данные пользователей виртуального хостинга</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="content pure-u-1 pure-u-md-21-24">
+            <div class="header-small">
+                <?php
+                if(isset($_GET['error']) AND $_GET['error'] == 1)
+                    echo '<div>
+                        <aside class="pure-message message-error">
+                            <p><strong>ERROR</strong>:  Такая учетная запись уже используется!</p>
+                        </aside>
+                    </div>';
+                ?>
+                <div class="items">
+                    <h1 class="pure-form pure-form-stacked">Сайты виртуального хостинга "Змей Горыныч"</h1>
+
+                    <table align-text="center" class="pure-table pure-table-bordered">
+                        <thead>
+                        <tr>
+                            <th>Name_of_site</th>
+                            <th>Link</th>
+                            <th>User</th>
+                            <th width="50px">Time of creation</th>
+
+                            <th>State</th>
+                        </tr>
+                        </thead>
+
+                        <tbody>
+                        <style>
+                            .wrong_template {
+                                line-height: 120%;
+                                background: #ff480078;
+                                border: 3px solid red;
+                            }
+                        </style>
+                        <?php
+                                /*
+                                if(isset($_GET['offset'])) {
+                                    $offset = $_GET['offset'];
+                                }
+                                else
+                                    $offset = 0; */
+
+                                include($_SERVER['DOCUMENT_ROOT'].'/admin_panel/include/sites.php');
+
+                                $data = sites_list(0, 10);
+
+                                foreach($data as $row) {
+                                    echo '<tr style="line-height: 120%;">';
+                                    echo '<td>'.$row['name_of_site'].'</td>
+                                    <td>'.$row['link'].'</td>
+                                    <td>'.$row['user'].'</td>
+                                    <td>'.$row['Time_of_creation'].'</td>';
+
+                                    if ($row['state'] == 1)
+                                        echo '<td style="padding-bottom: 5vh; padding-right: 3vh;"><div onclick="showPopup('.$row["ID"].', \'OFF\');" class="check switcher header__switcher active"></div></td>';
+                                    else
+                                        echo '<td style="padding-bottom: 5vh; padding-right: 3vh;"><div onclick="showPopup('.$row["ID"].', \'ON\');" class="check switcher header__switcher"></div></td>';
+
+                                    echo '</tr>';
+                                 }
+                        ?>
+                        </tbody>
+                    </table>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</body>
+</html>

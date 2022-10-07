@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A layout example that shows off a blog page with a list of posts.">
+    <title>Admin Panel</title>
+
+    <link rel="stylesheet" href="assets/css/pure-min.css">
+    <link rel="stylesheet" href="assets/css/pure-responsive-min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/filter/style.css">
+
+    <script src="./assets/js/upload_VPN.js"></script>
+</head>
+<body>
+    <div id="layout" class="pure-g">
+        <div class="content pure-u-1 pure-u-md-21-24">
+            <div class="header-small">
+                <div class="items">
+                    <h1 class="subhead">Добавление заявок</h1>
+                    <form action="./add_new_user.php" enctype="multipart/form-data" method="POST"> 
+                        <table class="pure-table pure-table-bordered">
+                            <thead>
+                            <tr>
+                                <th colspan="3">Заяки на получение сайта на виртуальном хостинге (обрабатываются операторами)</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td colspan="2">Password_flag</td>
+                                <td><input type="text" required name="Password_flag" placeholder="Password" value=""></td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">Email address</td>
+                                <td><input type="text" required name="email" placeholder="Email" value=""></td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">Full name</td>
+                                <td><input type="text" name="full_name" placeholder="name" value=""></td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">Payment method</td>
+                                <td><input type="text" name="payment_method" placeholder="method" value=""></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        <input type="submit" class="rezults-filter__btn apply" value="Добавить">
+                    </form>
+                        <a href="/admin_panel/users.html"><div class="rezults-filter__btn apply">Назад</div></a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</body>
+</html>

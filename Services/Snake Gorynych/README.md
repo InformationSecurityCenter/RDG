@@ -1,4 +1,4 @@
-#Description
+# Description
 
 Приветствуем вас на вашей новой работе, можете гордо называть себя:  
 
@@ -27,7 +27,7 @@ MYSQL_PASSWORD=du1bgf18ng11
   
 Совет/указание: не трогайте все что связано с нашими операторами (все что связано с operator, operator_ctf) - они не смогут работать  
   
-##Install  
+## Install  
 cp setup.env .env  
 docker-compose build  
 docker-compose up  

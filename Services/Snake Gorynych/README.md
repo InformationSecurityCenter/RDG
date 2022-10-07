@@ -22,9 +22,9 @@ pass: password
   
 Уникальные данные для подключения к бд:  
   
-*MYSQL_ROOT_PASSWORD=du1bgf18ng11*  
-*MYSQL_USER=command_name*  
-*MYSQL_PASSWORD=du1bgf18ng11*  
+**MYSQL_ROOT_PASSWORD=du1bgf18ng11  
+MYSQL_USER=command_name  
+MYSQL_PASSWORD=du1bgf18ng11**  
   
 Совет/указание: не трогайте все что связано с нашими операторами (все что связано с operator, operator_ctf) - они не смогут работать  
   

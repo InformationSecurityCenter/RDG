@@ -1,0 +1,53 @@
+version: "3"
+
+services:
+  webserver:
+    build:
+      context: ./bin/${PHPVERSION}
+    container_name: "${COMPOSE_PROJECT_NAME}-${PHPVERSION}"
+    restart: "always"
+    ports:
+      - "1000:1000"
+      - "1001:1001"
+      - "1002:1002"
+      - "1003:1003"
+      - "1022:22"
+    links:
+      - database
+    volumes:
+      - ./www:/var/www/:rw
+      #- ${PHP_INI-./config/php/php.ini}:/usr/local/etc/php/php.ini
+      #- ${SSL_DIR-./config/ssl}:/etc/apache2/ssl/
+      - ./config/apache2:/etc/apache2/
+      #- ./config/conf-enabled:/etc/apache2/conf-enabled
+      - ${LOG_DIR-./logs/apache2}:/var/log/apache2
+      #- ${XDEBUG_LOG_DIR-./logs/xdebug}:/var/log/xdebug
+
+
+    environment:
+      APACHE_DOCUMENT_ROOT: ${APACHE_DOCUMENT_ROOT-/var/www/}
+      #PMA_PORT: ${HOST_MACHINE_PMA_PORT}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      HOST_MACHINE_MYSQL_PORT: ${HOST_MACHINE_MYSQL_PORT}
+      #XDEBUG_CONFIG: "client_host=host.docker.internal remote_port=${XDEBUG_PORT}"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+  database:
+    build:
+      context: "./bin/${DATABASE}"
+    container_name: "${COMPOSE_PROJECT_NAME}-${DATABASE}"
+    restart: "always"
+    ports:
+      - "127.0.0.1:${HOST_MACHINE_MYSQL_PORT}:3306"
+    volumes:
+      - ./config/initdb:/docker-entrypoint-initdb.d
+      #- ${MYSQL_DATA_DIR-./data/mysql}:/var/lib/mysql
+      - ${MYSQL_LOG_DIR-./logs/mysql}:/var/log/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
